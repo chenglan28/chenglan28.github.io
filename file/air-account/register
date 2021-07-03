@@ -1,0 +1,50 @@
+<meta charset='utf-8'>
+<title>Login - Air Uniform Account</title>
+<div id=display></div>
+<script>
+    document.querySelector("#display").innerHTML = "<div style=text-align:center><span style=font-size:2em;color:red>Register - Air Uniform Account</span><br>Username<input type='text' id='username' placeholder='Username' maxlength='24'><br>Password<input type='password' id='password' placeholder=Password maxlength=16><br>Please input your password again<br><input type=password id=password_r maxlength=16><input type='button' value='Register' onclick='javascript:user_register();'><br><a href='login'>Registered?Click me to login.</a><br></div>";
+</script>
+<script src=https://cdn.jsdelivr.net/gh/pig-cmd/pig-cmd.github.io/bmobSDK.js></script>
+<script>
+  Bmob.initialize("88ae889891d99fe7", "000427");
+  function user_register(){
+    
+  };
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  	function setcookie(name,value,time)
+	{
+        var exp = new Date();  
+        exp.setTime(exp.getTime() + time);  
+        document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString() + ";path=/";  
+	}
+	function getcookie(name) {  
+        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");  
+        if (arr = document.cookie.match(reg))  
+	{
+            return unescape(arr[2]);  
+	}
+        else 
+	{
+            return null;  
+	}
+    } 
+	 function delcookie(name,time) {  
+        var exp = new Date();  
+        exp.setTime(exp.getTime() - time);  
+        var cval = getcookie(name);  
+        if (cval != null) 
+            document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString() + ";path=/";
+	}
+</script>
