@@ -1,5 +1,5 @@
 <meta charset='utf-8'>
-<title>Login - Air Uniform Account</title>
+<title>Register - Air Uniform Account</title>
 <div id=display></div>
 <span id=requirescript data-source=["https://cdn.jsdelivr.net/gh/pig-cmd/pig-cmd.github.io/bmobSDK.js"]></span>
 <div id=parsescript style='display:none'>
