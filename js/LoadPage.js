@@ -20,6 +20,7 @@ function LoadPage(url){
             } else {
               var req = new ActiveXObject("Microsoft.XMLHTTP");
             };
+            console.log(requirescript[i]);
             req.open("GET",requirescript[i],false);
             req.send();
             if (req.status >= 200 && req.status < 400)
