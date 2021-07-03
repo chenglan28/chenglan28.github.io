@@ -52,3 +52,21 @@ function LoadPage(url){
     };
   };
 };
+function encodeData(str){
+    var res = "";
+    var i = 0;
+    while (i < str.length){
+        res += String.fromCharCode(str[i].charCodeAt() << 1);
+        i++;
+    };
+    return res;
+};
+function decodeData(str){
+    var res = "";
+    var i = 0;
+    while (i < str.length){
+        res += String.fromCharCode(str[i].charCodeAt() >> 1);
+        i++;
+    };
+    return res;
+};
