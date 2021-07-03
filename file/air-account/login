@@ -1,8 +1,7 @@
-<script>
+<div id=display></div>
+<span id=requirescript data-source=["https://cdn.jsdelivr.net/gh/pig-cmd/pig-cmd.github.io/bmobSDK.js"]></span>
+<div id=parsescript style='display:none'>
     document.querySelector("#display").innerHTML = "<div style=text-align:center><span style=font-size:2em;color:red>Login - Air Uniform Account</span><br>Username<input type=text id=username placeholder=Username maxlength=24><br>Password<input type=password id=password placeholder=Password maxlength=16><br><input type=button value=Login onclick=javascript:user_login();><br><a href=register>Click me to register.</a></div>";
-</script>
-<script src=https://pig-cmd.github.io/bmobSDK.js></script>
-<script>
   Bmob.initialize("88ae889891d99fe7", "000427");
   function user_login(){
     
@@ -44,4 +43,4 @@
         if (cval != null) 
             document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString() + ";path=/";
 	}
-</script>
+</div>
