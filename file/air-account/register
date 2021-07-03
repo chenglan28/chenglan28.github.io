@@ -3,7 +3,7 @@
 <div id=display></div>
 <span id=requirescript data-source=["https://cdn.jsdelivr.net/gh/pig-cmd/pig-cmd.github.io/bmobSDK.js"]></span>
 <div id=parsescript style='display:none'>
-    document.querySelector("#display").innerHTML = "<div style=text-align:center><span style=font-size:2em;color:red>Register - Air Uniform Account</span><br>Username<input type='text' id='username' placeholder='Username' maxlength='24'><br>Password<input type='password' id='password' placeholder=Password maxlength=16><br>Please input your password again<br><input type=password id=password_r maxlength=16><input type='button' value='Register' onclick='javascript:user_register();'><br><a href='login'>Registered?Click me to login.</a><br></div>";
+    document.querySelector("#display").innerHTML = "xÈÒì@æèòØÊzèÊðèZÂØÒÎÜtÆÊÜèÊä|xæàÂÜ@æèòØÊzÌÞÜèZæÒôÊtdÊÚvÆÞØÞätäÊÈ|¤ÊÎÒæèÊä@Z@Òä@ªÜÒÌÞäÚ@ÆÆÞêÜèx^æàÂÜ|xÄä|ªæÊäÜÂÚÊxÒÜàêè@èòàÊzNèÊðèN@ÒÈzNêæÊäÜÂÚÊN@àØÂÆÊÐÞØÈÊäzNªæÊäÜÂÚÊN@ÚÂðØÊÜÎèÐzNdhN|xÄä| ÂææîÞäÈxÒÜàêè@èòàÊzNàÂææîÞäÈN@ÒÈzNàÂææîÞäÈN@àØÂÆÊÐÞØÈÊäz ÂææîÞäÈ@ÚÂðØÊÜÎèÐzbl|xÄä| ØÊÂæÊ@ÒÜàêè@òÞêä@àÂææîÞäÈ@ÂÎÂÒÜxÄä|xÒÜàêè@èòàÊzàÂææîÞäÈ@ÒÈzàÂææîÞäÈ¾ä@ÚÂðØÊÜÎèÐzbl|xÒÜàêè@èòàÊzNÄêèèÞÜN@ìÂØêÊzN¤ÊÎÒæèÊäN@ÞÜÆØÒÆÖzNÔÂìÂæÆäÒàètêæÊä¾äÊÎÒæèÊäPRvN|xÄä|xÂ@ÐäÊÌzNØÞÎÒÜN|¤ÊÎÒæèÊäÊÈ~ØÒÆÖ@ÚÊ@èÞ@ØÞÎÒÜ\\x^Â|xÄä|x^ÈÒì|";
 
 
   Bmob.initialize("88ae889891d99fe7", "000427");
