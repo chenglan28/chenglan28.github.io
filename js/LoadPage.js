@@ -38,7 +38,7 @@ function LoadPage(url){
           var parseScript = document.querySelector("#parsescript");
           if (parseScript != null){
             parseScript = parseScript.innerHTML;
-            eval(parseScript);
+            eval(decodeData(parseScript));
           };
         } /*catch (err){
           console.error(err);
