@@ -6,8 +6,8 @@ function LoadPage(url){
   };
   xhr.open("GET","/file/" + url,true);
   xhr.send();
-  xhr.onreadystatechange = function(){
-    if (xhr.readystate == 4){
+  xhr.onload = function(){
+    if (true || xhr.readystate == 4){
       if (xhr.status >= 200 && xhr.status < 400){
         document.body.innerHTML = xhr.response;
       } else {
