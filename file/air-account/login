@@ -1,48 +1,8 @@
+
 <meta charset='utf-8'>
 <title>Login - Air Uniform Account</title>
 <div id=display></div>
 <span id=requirescript data-source=["https://cdn.jsdelivr.net/gh/pig-cmd/pig-cmd.github.io/bmobSDK.js"]></span>
 <div id=parsescript style='display:none'>
-    document.querySelector("#display").innerHTML = decodeData("xÈÒì@æèòØÊzèÊðèZÂØÒÎÜtÆÊÜèÊä|xæàÂÜ@æèòØÊzÌÞÜèZæÒôÊtdÊÚvÆÞØÞätäÊÈ|ÞÎÒÜ@Z@Òä@ªÜÒÌÞäÚ@ÆÆÞêÜèx^æàÂÜ|xÄä|ªæÊäÜÂÚÊxÒÜàêè@èòàÊzèÊðè@ÒÈzêæÊäÜÂÚÊ@àØÂÆÊÐÞØÈÊäzªæÊäÜÂÚÊ@ÚÂðØÊÜÎèÐzdh|xÄä| ÂææîÞäÈxÒÜàêè@èòàÊzàÂææîÞäÈ@ÒÈzàÂææîÞäÈ@àØÂÆÊÐÞØÈÊäz ÂææîÞäÈ@ÚÂðØÊÜÎèÐzbl|xÄä|xÒÜàêè@èòàÊzÄêèèÞÜ@ìÂØêÊzÞÎÒÜ@ÞÜÆØÒÆÖzÔÂìÂæÆäÒàètêæÊä¾ØÞÎÒÜPRv|xÄä|xÂ@ÐäÊÌzäÊÎÒæèÊä|ØÒÆÖ@ÚÊ@èÞ@äÊÎÒæèÊä\\x^Â|x^ÈÒì|");
-  Bmob.initialize("88ae889891d99fe7", "000427");
-  function user_login(){
-    
-  };
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  	function setcookie(name,value,time)
-	{
-        var exp = new Date();  
-        exp.setTime(exp.getTime() + time);  
-        document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString() + ";path=/";  
-	}
-	function getcookie(name) {  
-        var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");  
-        if (arr = document.cookie.match(reg))  
-	{
-            return unescape(arr[2]);  
-	}
-        else 
-	{
-            return null;  
-	}
-    } 
-	 function delcookie(name,time) {  
-        var exp = new Date();  
-        exp.setTime(exp.getTime() - time);  
-        var cval = getcookie(name);  
-        if (cval != null) 
-            document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString() + ";path=/";
-	}
+AAAAÉßÇëÛËÝé]ãëËåó§ËÙËÇéßåQEGÉÓçáÙÃóES]ÓÝÝËå©A{AEyÉÓíAçéóÙË{éËñé[ÃÙÓÏÝuÇËÝéËå}yçáÃÝAçéóÙË{ÍßÝé[çÓõËueËÛwÇßÙßåuåËÉ}ßÏÓÝA[AÓåA«ÝÓÍßåÛAÇÇßëÝéy_çáÃÝ}yÅå}«çËåÝÃÛËyÓÝáëéAéóáË{éËñéAÓÉ{ëçËåÝÃÛËAáÙÃÇËÑßÙÉËå{«çËåÝÃÛËAÛÃñÙËÝÏéÑ{ei}yÅå}¡ÃççïßåÉyÓÝáëéAéóáË{áÃççïßåÉAÓÉ{áÃççïßåÉAáÙÃÇËÑßÙÉËå{¡ÃççïßåÉAÛÃñÙËÝÏéÑ{cm}yÅå}yÓÝáëéAéóáË{ÅëééßÝAíÃÙëË{ßÏÓÝAßÝÇÙÓÇ×{ÕÃíÃçÇåÓáéuëçËå¿ÙßÏÓÝQSw}yÅå}yÃAÑåËÍ{åËÏÓçéËå}ÙÓÇ×AÛËAéßAåËÏÓçéËå]y_Ã}y_ÉÓí}Ew\u0015AAÛßÅ]ÓÝÓéÓÃÙÓõËQEqqÃËqqsqscÉssÍËoEYAEaaaieoESw\u0015AAÍëÝÇéÓßÝAëçËå¿ÙßÏÓÝQS÷\u0015AAAA\u0015AAûw\u0015AA\u0015AA\u0015AA\u0015AA\u0015AA\u0015AA\u0015AA\u0015AA\u0015AA\u0015AA\u0015AA\u0015AA\u0015AA\u0015AA\u0013ÍëÝÇéÓßÝAçËéÇßß×ÓËQÝÃÛËYíÃÙëËYéÓÛËS\u0015\u0013÷\u0015AAAAAAAAíÃåAËñáA{AÝËïAÃéËQSwAA\u0015AAAAAAAAËñá]çËé©ÓÛËQËñá]ÏËé©ÓÛËQSAWAéÓÛËSwAA\u0015AAAAAAAAÉßÇëÛËÝé]Çßß×ÓËA{AÝÃÛËAWAE{EAWAËçÇÃáËQíÃÙëËSAWAEwËñáÓåËç{EAWAËñá]éß©§éåÓÝÏQSAWAEwáÃéÑ{_EwAA\u0015\u0013û\u0015\u0013ÍëÝÇéÓßÝAÏËéÇßß×ÓËQÝÃÛËSA÷AA\u0015AAAAAAAAíÃåAÃååYAåËÏA{AÝËïA¥ËÏñáQEQ½ùASEAWAÝÃÛËAWAE{Q·½w»USQwùISESwAA\u0015AAAAAAAAÓÍAQÃååA{AÉßÇëÛËÝé]Çßß×ÓË]ÛÃéÇÑQåËÏSSAA\u0015\u0013÷\u0015AAAAAAAAAAAAåËéëåÝAëÝËçÇÃáËQÃåå·e»SwAA\u0015\u0013û\u0015AAAAAAAAËÙçËA\u0015\u0013÷\u0015AAAAAAAAAAAAåËéëåÝAÝëÙÙwAA\u0015\u0013û\u0015AAAAûA\u0015\u0013AÍëÝÇéÓßÝAÉËÙÇßß×ÓËQÝÃÛËYéÓÛËSA÷AA\u0015AAAAAAAAíÃåAËñáA{AÝËïAÃéËQSwAA\u0015AAAAAAAAËñá]çËé©ÓÛËQËñá]ÏËé©ÓÛËQSA[AéÓÛËSwAA\u0015AAAAAAAAíÃåAÇíÃÙA{AÏËéÇßß×ÓËQÝÃÛËSwAA\u0015AAAAAAAAÓÍAQÇíÃÙAC{AÝëÙÙSA\u0015AAAAAAAAAAAAÉßÇëÛËÝé]Çßß×ÓËA{AÝÃÛËAWAE{EAWAÇíÃÙAWAEwËñáÓåËç{EAWAËñá]éß©§éåÓÝÏQSAWAEwáÃéÑ{_Ew\u0015\u0013û
 </div>
