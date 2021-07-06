@@ -19,7 +19,7 @@ function LoadPage(url){
                 var req = new XMLHttpRequest();
               else
                 var req = new ActiveXObject("Microsoft.XMLHTTP");
-              req.open("GET","/file/" + url,false);
+              req.open("GET",eles[i].src,false);
               req.send();
               if (req.status >= 200 && req.status < 400){
                 eval(req.response);
@@ -28,9 +28,9 @@ function LoadPage(url){
           } catch (err){
             console.error(err);
           } finally {
-            i++;
-            continue;
           };
+          i++;
+          continue;
         };
       } else {
         document.body.innerHTML = "Failed to load the page.<hr>AirServer Error Report<br>·HTTP STATUS " + xhr.status + "<br><br>·Please refresh the page.<br>·Please contact the owner of this website.<a href=mailto:chenglan_mc@163.com>chenglan28</a> <a href=mailto:pcdn2021@outlook.com>cdn2021</a>";
