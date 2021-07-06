@@ -2,7 +2,48 @@
 <meta charset='utf-8'>
 <title>Login - Air Uniform Account</title>
 <div id=display></div>
-<span id=requirescript data-source=["https://cdn.jsdelivr.net/gh/pig-cmd/pig-cmd.github.io/bmobSDK.js"]></span>
-<div id=parsescript style='display:none'>
-ZG9jdW1lbnQucXVlcnlTZWxlY3RvcigiI2Rpc3BsYXkiKS5pbm5lckhUTUwgPSAiPGRpdiBzdHlsZT10ZXh0LWFsaWduOmNlbnRlcj48c3BhbiBzdHlsZT1mb250LXNpemU6MmVtO2NvbG9yOnJlZD5Mb2dpbiAtIEFpciBVbmlmb3JtIEFjY291bnQ8L3NwYW4+PGJyPlVzZXJuYW1lPGlucHV0IHR5cGU9dGV4dCBpZD11c2VybmFtZSBwbGFjZWhvbGRlcj1Vc2VybmFtZSBtYXhsZW5ndGg9MjQ+PGJyPlBhc3N3b3JkPGlucHV0IHR5cGU9cGFzc3dvcmQgaWQ9cGFzc3dvcmQgcGxhY2Vob2xkZXI9UGFzc3dvcmQgbWF4bGVuZ3RoPTE2Pjxicj48aW5wdXQgdHlwZT1idXR0b24gdmFsdWU9TG9naW4gb25jbGljaz1qYXZhc2NyaXB0OnVzZXJfbG9naW4oKTs+PGJyPjxhIGhyZWY9cmVnaXN0ZXI+Q2xpY2sgbWUgdG8gcmVnaXN0ZXIuPC9hPjwvZGl2PiI7CiAgQm1vYi5pbml0aWFsaXplKCI4OGFlODg5ODkxZDk5ZmU3IiwgIjAwMDQyNyIpOwogIGZ1bmN0aW9uIHVzZXJfbG9naW4oKXsKICAgIAogIH07CiAgCiAgCiAgCiAgCiAgCiAgCiAgCiAgCiAgCiAgCiAgCiAgCiAgCiAgCWZ1bmN0aW9uIHNldGNvb2tpZShuYW1lLHZhbHVlLHRpbWUpCgl7CiAgICAgICAgdmFyIGV4cCA9IG5ldyBEYXRlKCk7ICAKICAgICAgICBleHAuc2V0VGltZShleHAuZ2V0VGltZSgpICsgdGltZSk7ICAKICAgICAgICBkb2N1bWVudC5jb29raWUgPSBuYW1lICsgIj0iICsgZXNjYXBlKHZhbHVlKSArICI7ZXhwaXJlcz0iICsgZXhwLnRvR01UU3RyaW5nKCkgKyAiO3BhdGg9LyI7ICAKCX0KCWZ1bmN0aW9uIGdldGNvb2tpZShuYW1lKSB7ICAKICAgICAgICB2YXIgYXJyLCByZWcgPSBuZXcgUmVnRXhwKCIoXnwgKSIgKyBuYW1lICsgIj0oW147XSopKDt8JCkiKTsgIAogICAgICAgIGlmIChhcnIgPSBkb2N1bWVudC5jb29raWUubWF0Y2gocmVnKSkgIAoJewogICAgICAgICAgICByZXR1cm4gdW5lc2NhcGUoYXJyWzJdKTsgIAoJfQogICAgICAgIGVsc2UgCgl7CiAgICAgICAgICAgIHJldHVybiBudWxsOyAgCgl9CiAgICB9IAoJIGZ1bmN0aW9uIGRlbGNvb2tpZShuYW1lLHRpbWUpIHsgIAogICAgICAgIHZhciBleHAgPSBuZXcgRGF0ZSgpOyAgCiAgICAgICAgZXhwLnNldFRpbWUoZXhwLmdldFRpbWUoKSAtIHRpbWUpOyAgCiAgICAgICAgdmFyIGN2YWwgPSBnZXRjb29raWUobmFtZSk7ICAKICAgICAgICBpZiAoY3ZhbCAhPSBudWxsKSAKICAgICAgICAgICAgZG9jdW1lbnQuY29va2llID0gbmFtZSArICI9IiArIGN2YWwgKyAiO2V4cGlyZXM9IiArIGV4cC50b0dNVFN0cmluZygpICsgIjtwYXRoPS8iOwoJfQ==
-</div>
+<script src=https://cdn.jsdelivr.net/gh/pig-cmd/pig-cmd.github.io/bmobSDK.js></script>
+<script>
+document.querySelector("#display").innerHTML = "<div style=text-align:center><span style=font-size:2em;color:red>Login - Air Uniform Account</span><br>Username<input type=text id=username placeholder=Username maxlength=24><br>Password<input type=password id=password placeholder=Password maxlength=16><br><input type=button value=Login onclick=javascript:user_login();><br><a href=register>Click me to register.</a></div>";
+Bmob.initialize("88ae889891d99fe7", "000427");
+function user_login(){
+
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+function setcookie(name,value,time)
+{
+var exp = new Date();
+exp.setTime(exp.getTime() + time);
+document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString() + ";path=/";
+}
+function getcookie(name) {
+var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+if (arr = document.cookie.match(reg))
+{
+return unescape(arr[2]);
+}
+else
+{
+return null;
+}
+}
+function delcookie(name,time) {
+var exp = new Date();
+exp.setTime(exp.getTime() - time);
+var cval = getcookie(name);
+if (cval != null)
+document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString() + ";path=/";
+}
+</script>
