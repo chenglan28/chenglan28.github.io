@@ -20,11 +20,16 @@ function LoadPage(url){
               else
                 var req = new ActiveXObject("Microsoft.XMLHTTP");
               req.open("GET",eles[i].src,false);
+              console.info("[" + i + "]Request " + eles[i].src); 
               req.send();
               if (req.status >= 200 && req.status < 400){
                 eval(req.response);
+                console.info("[" + i + "]Eval " + req.response);
               } else throw(req);
-            } else eval(eles[i].text);
+            } else {
+              eval(eles[i].text);
+              console.info("[" + i + "]Eval" + eles[i].text);
+            };
           } catch (err){
             console.error(err);
           } finally {
