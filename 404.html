@@ -1,5 +1,17 @@
 <script src=/js/LoadPage.js></script>
 <script>
 LoadPage(location.href.substring(location.origin.length+1));
+  var svi = setInterval(function(){
+    if (typeof(s) != "undefined"){
+      clearInterval(svi);
+      setTimeout(function(){
+        var i = 0;
+        while (i < s.length){
+          eval(s[i]);
+          i++;
+        };
+      },500);
+    };
+  },200);
 </script>
 <div id=pages></div>
