@@ -10,39 +10,27 @@ function LoadPage(url){
     if (true || xhr.readystate == 4){
       if (xhr.status >= 200 && xhr.status < 400){
         document.body.innerHTML = xhr.response;
-       /* try*/ {
-          var requirescript = document.querySelector("#requirescript");
-          if (requirescript != null){
-            requirescript = JSON.parse(requirescript.getAttribute("data-source"));
-            var i = 0;
-            while (i < requirescript.length){
-              if (window.XMLHttpRequest){
+        var eles = document.querySelectorAll("script");
+        var i = 0;
+        while (i < eles.length){
+          try {
+            if (eles[i].src != ""){
+              if (window.XMLHttpRequest)
                 var req = new XMLHttpRequest();
-              } else {
-                var req = new ActiveXObject("Microsoft.XMLHTTP");
-              };
-              console.log(requirescript[i]);
-              req.open("GET",requirescript[i],false);
-              req.send();
-              if (req.status >= 200 && req.status < 400)
-                eval(req.responseText);
               else
-                console.error("Cannot load javascript file:" + requirescript[i]);
-              i++;
-            };
+                var req = new ActiveXObject("Microsoft.XMLHTTP");
+              req.open("GET","/file/" + url,false);
+              req.send();
+              if (req.status >= 200 && req.status < 400){
+                eval(req.response);
+              } else throw(req);
+            } else eval(eles[i].text);
+          } catch (err){
+            console.error(err);
+          } finally {
+            i++;
+            continue;
           };
-        } /*catch (err){
-          console.error(err);
-        };*/
-        /*try */{
-          var parseScript = document.querySelector("#parsescript");
-          if (parseScript != null){
-            parseScript = parseScript.innerHTML;
-            eval(decodeData(parseScript));
-          };
-        } /*catch (err){
-          console.error(err);
-        };*/
       } else {
         document.body.innerHTML = "Failed to load the page.<hr>AirServer Error Report<br>·HTTP STATUS " + xhr.status + "<br><br>·Please refresh the page.<br>·Please contact the owner of this website.<a href=mailto:chenglan_mc@163.com>chenglan28</a> <a href=mailto:pcdn2021@outlook.com>cdn2021</a>";
       };
