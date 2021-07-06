@@ -1,3 +1,4 @@
+var s = [];
 function LoadPage(url){
   if (window.XMLHttpRequest){
     var xhr = new XMLHttpRequest();
@@ -29,6 +30,8 @@ function LoadPage(url){
             } else {
               eval(eles[i].text);
               console.info("[" + i + "]Eval" + eles[i].text);
+              eval(eles[i].text);
+              s[s.length] = eles[i].text;
             };
           } catch (err){
             console.error(err);
