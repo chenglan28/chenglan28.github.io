@@ -1,0 +1,354 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Hericium's Dream(猴头菇的梦境)</title>
+        <style>
+            * {
+                padding: 0;
+                margin: 0;
+            }
+            html,body {
+                width: 100%;
+                height: 100%;
+            }
+            #input {
+                width: 66%;
+                height: 8%;
+                position: absolute;
+                bottom: 1%;
+                left: 1%;
+            }
+            #send {
+                width: 15%;
+                height: 8%;
+                position: absolute;
+                bottom: 1%;
+                left: 68%;
+            }
+            #collect {
+                width: 15%;
+                height: 8%;
+                position: absolute;
+                bottom: 1%;
+                left: 84%;
+            }
+            #log {
+                width: 95%;
+                height: 85%;
+                padding: 2.5%;
+                overflow-x: hidden;
+                overflow-y: auto;
+            }
+            #collectUI {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 95%;
+                height: 85%;
+                padding: 2.5%;
+                overflow-x: hidden;
+                overflow-y: auto;
+                background: black;
+                opacity: 0.8;
+                color: white;
+                display: none;
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+                column-gap: 5px;
+            }
+            #collectUI div {
+                text-align: center;
+            }
+            #collectUI div img {
+                width: 100%;
+            }
+            .profile {
+                width: 48px;
+                height: 48px;
+                border-radius: 8px;
+            }
+            .name {
+                position: relative;
+                top: -16px;
+                left: 4px;
+                font-size: 16px;
+                color: gray;
+            }
+            .chat {
+                width: 45%;
+                padding: 2.5%;
+                border-radius: 24px;
+                background: #0C8;
+                color: white;
+                word-break: break-word;
+            }
+            .own {
+                text-align: right;
+                margin: 5% 0 0 0;
+            }
+            .own .chat {
+                position: relative;
+                left: 50%;
+                background: #08C;
+            }
+            #start {
+                width: 100%;
+                height: 100%;
+                background: green;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            #start div {
+                color: white;
+                position: absolute;
+                top: 75%;
+                width: 100%;
+                text-align: center;
+            }
+            .narration {
+                margin:5%;
+                color: white;
+                text-align: center;
+            }
+            .other {
+                margin: 5% 0 0 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="log">
+        </div>
+        <div id="collectUI">
+            <div>
+                <img src="test" />
+                test
+            </div>
+        </div>
+        <select id="input">
+            
+        </select>
+        <input type="button" id="send" value="发送" onclick="send()" />
+        <input type="button" id="collect" value="收集" onclick="collect()" />
+        <div id="start" onclick="start()">
+            封面
+            <div>点击屏幕开始游戏</div>
+            <span style="position: absolute;bottom: 1%;left: 1%;color: white;">
+                Beta 0.1.0<br/>
+                有 Bug 请反馈至 studios_air@163.com
+            </span>
+        </div>
+        <audio id="ring">
+            <source src="./assets/audio/ring.mp3" type="audio/mpeg" />
+        </audio>
+        <script>
+            var startBox = undefined;
+            var opera = {
+                main:[{
+                    type:"narration",
+                    inner:"叮铃铃，上课时间到了",
+                    next:"main[1]"
+                },{
+                    type:"other",
+                    profile:"./assets/img/Danning.png",
+                    name:"老师",
+                    chat:"同学们好！",
+                    next:"main[2]"
+                },{
+                    type:"other",
+                    profile:"./assets/img/Danning.png",
+                    name:"老师",
+                    chat:"欢迎大家来到这个班级",
+                    next:"main[3]"
+                },{
+                    type:"other",
+                    profile:"./assets/img/Danning.png",
+                    name:"老师",
+                    chat:"以后的三年我们将会一起度过",
+                    next:"part2[0]"
+                }],
+                part2:[{
+                    type:"other",
+                    profile:"./assets/img/Danning.png",
+                    name:"蛋宁",
+                    chat:"我介绍一下我自己吧，我叫蛋宁，是你们的班主任",
+                    next:"part2[1]"
+                },{
+                    type:"other",
+                    profile:"./assets/img/Danning.png",
+                    name:"蛋宁",
+                    chat:"接下来请大家依次做自我介绍",
+                    next:"part2[2]"
+                },{
+                    type:"other",
+                    profile:"./assets/img/Ben.png",
+                    name:"本",
+                    chat:"嗨！大家好，我的名字叫本",
+                    next:"part2[3]"
+                },{
+                    type:"other",
+                    profile:"./assets/img/Andrew.png",
+                    name:"安德鲁",
+                    chat:"我叫安德鲁",
+                    next:"part2[4]"
+                },{
+                    type:"opt",
+                    opt:[{
+                        inner:"我...我叫菇...",
+                        next:"tree_1[0]"
+                    },{
+                        inner:"我...我叫菇菇...",
+                        next:"tree_1[1]"
+                    }]
+                },{
+                    type:"other",
+                    profile:"./assets/img/Mides.png",
+                    name:"麦迪斯",
+                    chat:"麦迪斯(冷漠)",
+                    next:"part2[6]"
+                },{
+                    type:"other",
+                    profile:"./assets/img/others.png",
+                    name:"众人",
+                    chat:"(依次做自我介绍)",
+                    next:"part2[6]"
+                }],
+                tree_1:[{
+                    type:"own",
+                    profile:"./assets/img/Hericium.png",
+                    name:"菇",
+                    chat:"我...我叫菇...",
+                    next:"part2[5]"
+                },{
+                    type:"own",
+                    profile:"./assets/img/Hericium.png",
+                    name:"菇",
+                    chat:"我...我叫菇菇...",
+                    next:"part2[5]"
+                }],
+                // main:[{
+                //     "type":"other",
+                //     "profile":"./icon.png",
+                //     "name":"test",
+                //     "chat":"测试1",
+                //     "next":"main[1]"
+                // },{
+                //     "type":"narration",
+                //     "inner":"测试2",
+                //     "next":"main[2]"
+                // },{
+                //     "type":"own",
+                //     "profile":"./icon.png",
+                //     "name":"test",
+                //     "chat":"测试3",
+                //     "next":"main[3]"
+                // },{
+                //     "type":"img",
+                //     "url":"./icon.png",
+                //     "next":"main[4]"
+                // },{
+                //     "type":"video",
+                //     "url":"./a.mp4",
+                //     "next":"main[5]"
+                // },{
+                //     "type":"opt",
+                //     "opt":[{
+                //         "inner":"测试4",
+                //         "next":"main[6]"
+                //     },{
+                //         "inner":"测试5",
+                //         "next":"main[7]"
+                //     }]
+                // },{
+                //     "type":"own",
+                //     "profile":"./icon.png",
+                //     "name":"test",
+                //     "chat":"测试4+1",
+                //     "next":"main[3]"
+                // },{
+                //     "type":"own",
+                //     "profile":"./icon.png",
+                //     "name":"test",
+                //     "chat":"测试5+1",
+                //     "next":"main[3]"
+                // }]
+            };
+            collect = () => {
+                if(document.getElementById("collectUI").style.display == "grid")document.getElementById("collectUI").style.display = "none";
+                else document.getElementById("collectUI").style.display = "grid";
+            }
+            talk = (next) => {
+                if(!next)next = "main[0]";
+                localStorage.opera = next;
+                localStorage.log = document.getElementById("log").innerHTML;
+                var res = eval("opera." + next);
+                if(res.type == "other"){
+                    document.getElementById("log").innerHTML += `
+                        <div class="other">
+                            <img src="${res.profile}" class="profile" />
+                            <span class="name">${res.name}</span>
+                            <div class="chat">${res.chat}</div>
+                        </div>`;
+                    setTimeout(()=>{talk(res.next)},res.chat.length * 200);
+                }
+                else if(res.type == "narration"){
+                    console.log(res)
+                    document.getElementById("log").innerHTML += `
+                        <div class="narration">
+                            <span style="background: gray;padding: 1% 5%;border-radius: 16px;">${res.inner}</span>
+                        </div>`;
+                    setTimeout(()=>{talk(res.next)},res.inner.length * 200);
+                }
+                else if(res.type == "own"){
+                    console.log(res)
+                    document.getElementById("log").innerHTML += `
+                        <div class="own">
+                            <img src="${res.profile}" class="profile" />
+                            <span class="name">${res.name}</span>
+                            <div class="chat">${res.chat}</div>
+                        </div>`;
+                    setTimeout(()=>{talk(res.next)},res.chat.length * 200);
+                }
+                else if(res.type == "img"){
+                    document.getElementById("log").innerHTML += `<img src="${res.url}" style="margin: 5% 25% 0 25%;width: 50%;" />`;
+                    setTimeout(()=>{talk(res.next)},3000);
+                }
+                else if(res.type == "video"){
+                    document.getElementById("log").innerHTML += `<video style="width: 50%;margin: 5% 25% 0 25%;" controls="controls" autoplay="autoplay">
+                            <source src="${res.url}" type="video/mp4" />
+                        </video>`;
+                    setTimeout(()=>{talk(res.next)},3000);
+                }
+                else if(res.type == "opt"){
+                    res.opt.forEach(item => {
+                        document.getElementById("input").innerHTML += `<option value="${item.next}">${item.inner}</option>`
+                    });
+                }
+                document.getElementById("ring").play();
+            }
+            send = () => {
+                talk(document.getElementById("input").value);
+                document.getElementById("input").innerHTML = "";
+            }
+            start = () => {
+                var o = 100;
+                if(startBox == undefined){
+                    startBox = setInterval(()=>{
+                        o--;
+                        document.getElementById("start").style.opacity = o / 100;
+                        if(o <= 0){
+                            clearInterval(startBox);
+                            startBox = undefined;
+                            if(localStorage.log)document.getElementById("log").innerHTML = localStorage.log;
+                            document.getElementById("start").style.display = "none";
+                            setTimeout(()=>{
+                                if(!localStorage.opera)talk();
+                                else talk(localStorage.opera);
+                            },1000);
+                        }
+                    },10);
+                }
+            }
+        </script>
+    </body>
+</html>
