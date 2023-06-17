@@ -14,24 +14,27 @@
             }
             #input {
                 width: 66%;
-                height: 8%;
+                height: 5%;
                 position: absolute;
                 bottom: 1%;
                 left: 1%;
+                font-size: 1.5em;
             }
             #send {
                 width: 15%;
-                height: 8%;
+                height: 5%;
                 position: absolute;
                 bottom: 1%;
                 left: 68%;
+                font-size: 1.5em;
             }
             #collect {
                 width: 15%;
-                height: 8%;
+                height: 5%;
                 position: absolute;
                 bottom: 1%;
                 left: 84%;
+                font-size: 1.5em;
             }
             #log {
                 width: 95%;
@@ -58,6 +61,7 @@
             }
             #collectUI div {
                 text-align: center;
+                font-size: 1.5em;
             }
             #collectUI div img {
                 width: 100%;
@@ -73,6 +77,7 @@
                 left: 4px;
                 font-size: 16px;
                 color: gray;
+                font-size: 1.5em;
             }
             .chat {
                 width: 45%;
@@ -81,6 +86,7 @@
                 background: #0C8;
                 color: white;
                 word-break: break-word;
+                font-size: 1.5em;
             }
             .own {
                 text-align: right;
@@ -98,11 +104,12 @@
                 position: absolute;
                 top: 0;
                 left: 0;
+                font-size: 2.5em;
             }
             #start div {
                 color: white;
                 position: absolute;
-                top: 75%;
+                top: 70%;
                 width: 100%;
                 text-align: center;
             }
@@ -141,147 +148,25 @@
         <audio id="ring">
             <source src="./assets/audio/ring.mp3" type="audio/mpeg" />
         </audio>
+        <audio id="ring2">
+            <source src="./assets/audio/ring2.mp3" type="audio/mpeg" />
+        </audio>
+        <audio id="ring3">
+            <source src="./assets/audio/ring3.mp3" type="audio/mpeg" />
+        </audio>
+        <script src="./opera.js"></script>
         <script>
             var startBox = undefined;
-            var opera = {
-                main:[{
-                    type:"narration",
-                    inner:"叮铃铃，上课时间到了",
-                    next:"main[1]"
-                },{
-                    type:"other",
-                    profile:"./assets/img/Danning.png",
-                    name:"老师",
-                    chat:"同学们好！",
-                    next:"main[2]"
-                },{
-                    type:"other",
-                    profile:"./assets/img/Danning.png",
-                    name:"老师",
-                    chat:"欢迎大家来到这个班级",
-                    next:"main[3]"
-                },{
-                    type:"other",
-                    profile:"./assets/img/Danning.png",
-                    name:"老师",
-                    chat:"以后的三年我们将会一起度过",
-                    next:"part2[0]"
-                }],
-                part2:[{
-                    type:"other",
-                    profile:"./assets/img/Danning.png",
-                    name:"蛋宁",
-                    chat:"我介绍一下我自己吧，我叫蛋宁，是你们的班主任",
-                    next:"part2[1]"
-                },{
-                    type:"other",
-                    profile:"./assets/img/Danning.png",
-                    name:"蛋宁",
-                    chat:"接下来请大家依次做自我介绍",
-                    next:"part2[2]"
-                },{
-                    type:"other",
-                    profile:"./assets/img/Ben.png",
-                    name:"本",
-                    chat:"嗨！大家好，我的名字叫本",
-                    next:"part2[3]"
-                },{
-                    type:"other",
-                    profile:"./assets/img/Andrew.png",
-                    name:"安德鲁",
-                    chat:"我叫安德鲁",
-                    next:"part2[4]"
-                },{
-                    type:"opt",
-                    opt:[{
-                        inner:"我...我叫菇...",
-                        next:"tree_1[0]"
-                    },{
-                        inner:"我...我叫菇菇...",
-                        next:"tree_1[1]"
-                    }]
-                },{
-                    type:"other",
-                    profile:"./assets/img/Mides.png",
-                    name:"麦迪斯",
-                    chat:"麦迪斯(冷漠)",
-                    next:"part2[6]"
-                },{
-                    type:"other",
-                    profile:"./assets/img/others.png",
-                    name:"众人",
-                    chat:"(依次做自我介绍)",
-                    next:"part2[6]"
-                }],
-                tree_1:[{
-                    type:"own",
-                    profile:"./assets/img/Hericium.png",
-                    name:"菇",
-                    chat:"我...我叫菇...",
-                    next:"part2[5]"
-                },{
-                    type:"own",
-                    profile:"./assets/img/Hericium.png",
-                    name:"菇",
-                    chat:"我...我叫菇菇...",
-                    next:"part2[5]"
-                }],
-                // main:[{
-                //     "type":"other",
-                //     "profile":"./icon.png",
-                //     "name":"test",
-                //     "chat":"测试1",
-                //     "next":"main[1]"
-                // },{
-                //     "type":"narration",
-                //     "inner":"测试2",
-                //     "next":"main[2]"
-                // },{
-                //     "type":"own",
-                //     "profile":"./icon.png",
-                //     "name":"test",
-                //     "chat":"测试3",
-                //     "next":"main[3]"
-                // },{
-                //     "type":"img",
-                //     "url":"./icon.png",
-                //     "next":"main[4]"
-                // },{
-                //     "type":"video",
-                //     "url":"./a.mp4",
-                //     "next":"main[5]"
-                // },{
-                //     "type":"opt",
-                //     "opt":[{
-                //         "inner":"测试4",
-                //         "next":"main[6]"
-                //     },{
-                //         "inner":"测试5",
-                //         "next":"main[7]"
-                //     }]
-                // },{
-                //     "type":"own",
-                //     "profile":"./icon.png",
-                //     "name":"test",
-                //     "chat":"测试4+1",
-                //     "next":"main[3]"
-                // },{
-                //     "type":"own",
-                //     "profile":"./icon.png",
-                //     "name":"test",
-                //     "chat":"测试5+1",
-                //     "next":"main[3]"
-                // }]
-            };
+            var _opera = 0;
             collect = () => {
                 if(document.getElementById("collectUI").style.display == "grid")document.getElementById("collectUI").style.display = "none";
                 else document.getElementById("collectUI").style.display = "grid";
             }
             talk = (next) => {
-                if(!next)next = "main[0]";
-                localStorage.opera = next;
                 localStorage.log = document.getElementById("log").innerHTML;
-                var res = eval("opera." + next);
+                localStorage.opera = _opera.toString();
+                if(!opera[_opera])return undefined;
+                var res = opera[_opera];
                 if(res.type == "other"){
                     document.getElementById("log").innerHTML += `
                         <div class="other">
@@ -289,15 +174,25 @@
                             <span class="name">${res.name}</span>
                             <div class="chat">${res.chat}</div>
                         </div>`;
-                    setTimeout(()=>{talk(res.next)},res.chat.length * 200);
+                    setTimeout(()=>{
+                        if(res.jmp)_opera += res.jmp;
+                        else _opera++;
+                        talk();
+                    },res.chat.length * 200);
+                    document.getElementById("ring").play();
                 }
                 else if(res.type == "narration"){
                     console.log(res)
                     document.getElementById("log").innerHTML += `
                         <div class="narration">
-                            <span style="background: gray;padding: 1% 5%;border-radius: 16px;">${res.inner}</span>
+                            <span style="background: gray;padding: 1% 5%;border-radius: 16px;font-size: 1.25em;">${res.inner}</span>
                         </div>`;
-                    setTimeout(()=>{talk(res.next)},res.inner.length * 200);
+                    setTimeout(()=>{    
+                        if(res.jmp)_opera += res.jmp;
+                        else _opera++;
+                        talk();
+                    },res.inner.length * 200);
+                    document.getElementById("ring3").play();
                 }
                 else if(res.type == "own"){
                     console.log(res)
@@ -307,27 +202,44 @@
                             <span class="name">${res.name}</span>
                             <div class="chat">${res.chat}</div>
                         </div>`;
-                    setTimeout(()=>{talk(res.next)},res.chat.length * 200);
+                    setTimeout(()=>{    
+                        if(res.jmp)_opera += res.jmp;
+                        else _opera++;
+                        talk();
+                    },res.chat.length * 200);
+                    document.getElementById("ring").play();
                 }
                 else if(res.type == "img"){
                     document.getElementById("log").innerHTML += `<img src="${res.url}" style="margin: 5% 25% 0 25%;width: 50%;" />`;
-                    setTimeout(()=>{talk(res.next)},3000);
+                    setTimeout(()=>{    
+                        if(res.jmp)_opera += res.jmp;
+                        else _opera++;
+                        talk();
+                    },3000);
+                    document.getElementById("ring").play();
                 }
                 else if(res.type == "video"){
                     document.getElementById("log").innerHTML += `<video style="width: 50%;margin: 5% 25% 0 25%;" controls="controls" autoplay="autoplay">
                             <source src="${res.url}" type="video/mp4" />
                         </video>`;
-                    setTimeout(()=>{talk(res.next)},3000);
+                    setTimeout(()=>{    
+                        if(res.jmp)_opera += res.jmp;
+                        else _opera++;
+                        talk();
+                    },3000);
+                    document.getElementById("ring").play();
                 }
                 else if(res.type == "opt"){
                     res.opt.forEach(item => {
-                        document.getElementById("input").innerHTML += `<option value="${item.next}">${item.inner}</option>`
+                        document.getElementById("input").innerHTML += `<option value="${(item.jmp)?item.jmp:"1"}">${item.inner}</option>`
                     });
+                    document.getElementById("ring2").play();
                 }
-                document.getElementById("ring").play();
+                document.getElementById("log").scrollBy(0,999999)
             }
             send = () => {
-                talk(document.getElementById("input").value);
+                _opera += Number(document.getElementById("input").value);
+                talk();
                 document.getElementById("input").innerHTML = "";
             }
             start = () => {
@@ -339,11 +251,13 @@
                         if(o <= 0){
                             clearInterval(startBox);
                             startBox = undefined;
-                            if(localStorage.log)document.getElementById("log").innerHTML = localStorage.log;
                             document.getElementById("start").style.display = "none";
                             setTimeout(()=>{
-                                if(!localStorage.opera)talk();
-                                else talk(localStorage.opera);
+                                if(localStorage.opera && confirm("您有一个游戏进度，是否加载\n（如果不加载，则旧进度会被新进度覆盖）")){
+                                    document.getElementById("log").innerHTML = localStorage.log;
+                                    _opera = Number(localStorage.opera);
+                                }
+                                talk();
                             },1000);
                         }
                     },10);
