@@ -5,7 +5,7 @@
 ### 好
 本(Ben)+
 安德鲁(Andrew)+
-戴尔斯(Derath)
+戴尔斯(Dareth)
 ### 中立
 凯瑟琳(Catherine)
 玛丽亚(Maria)
